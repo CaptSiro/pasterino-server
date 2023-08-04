@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+  Options -Indexes
+  RewriteEngine on
+  RewriteRule (.*) /pasterino-server/index.php [QSA,END]
+</IfModule>
