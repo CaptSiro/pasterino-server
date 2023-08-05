@@ -186,3 +186,8 @@
   function fail (Exc $exception): Result {
     return new Result(null, $exception);
   }
+  
+  
+  function fail_e(Exception $exception): Result {
+    return new Result(null, new Exc($exception->getMessage()));
+  }
