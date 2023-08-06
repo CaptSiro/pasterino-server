@@ -14,7 +14,7 @@ document.querySelector(".login")?.addEventListener("click", async () => {
     const res = await fetch(stateURL);
 
     if (!res.ok) {
-        alert("Could not initialize login procedure.");
+        console.error("Could not initialize login procedure.");
         return;
     }
 
