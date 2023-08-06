@@ -1,12 +1,15 @@
 <?php
   
-  require_once __DIR__ . "/../lib/dotenv/dotenv.php";
-  $env = new Env(__DIR__ . "/.env");
+  import("dotenv");
+  import("oakbase");
   
-  require_once __DIR__ . "/../lib/oakbase/oakbase.php";
   use OakBase\Database;
   use OakBase\BasicConfig;
 
+  
+  
+  $env = new Env(ENV);
+  
   return function (Request $request, Response $response, Closure $next) use ($env) {
     Database::configure(new BasicConfig(
       $env->get_or_crash("DB_HOST"),
