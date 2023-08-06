@@ -1,5 +1,11 @@
 export type API = {
-    state: {
+    state_create: {
         state: string
     },
+    user_exists: {
+        exists: boolean
+    },
+    session_create: {
+        redirect: string
+    }
 }

@@ -18,7 +18,7 @@ document.querySelector(".login")?.addEventListener("click", async () => {
         return;
     }
 
-    const { state } = await res.json() as API["state"];
+    const { state } = await res.json() as API["state_create"];
 
     localStorage.setItem("s", state);
 
