@@ -10,7 +10,7 @@ stateURL.searchParams.set("r", location.href);
 
 
 
-document.querySelector(".login")?.addEventListener("click", async evt => {
+document.querySelector(".login")?.addEventListener("click", async () => {
     const res = await fetch(stateURL);
 
     if (!res.ok) {
