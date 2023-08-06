@@ -7,7 +7,7 @@ const env = getEnv();
 
 
 
-document.querySelector(".login-with-twitch")?.addEventListener("click", async () => {
+document.querySelector("[data-server-login-with-twitch]")?.addEventListener("click", async () => {
     const state = new URL(location.href).searchParams.get("s");
 
     if (state === null) {

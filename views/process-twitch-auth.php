@@ -10,6 +10,6 @@
     <script src="<?= $GLOBALS["origin"] ?>/public/js/process-twitch-auth.js" type="module" defer></script>
 </head>
 <body>
-    <div class="error"></div>
+    <div data-server-error></div>
 </body>
 </html>

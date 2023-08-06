@@ -7,6 +7,8 @@ import { API } from "./api";
 
 const env = getEnv();
 
+const error: HTMLElement | null = document.querySelector<HTMLElement>("[data-server-error]");
+
 
 
 async function main() {

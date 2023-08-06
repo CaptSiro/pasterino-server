@@ -14,6 +14,6 @@
     <title>Login - Pasterino</title>
 </head>
 <body>
-    <button class="login-with-twitch">Login with Twitch!</button>
+    <button data-server-login-with-twitch>Login with Twitch!</button>
 </body>
 </html>
