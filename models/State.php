@@ -26,7 +26,7 @@
     
     
     static function create(Param $redirect): Result {
-      $id = Session::gen_id();
+      $id = Session::generate_id();
       
       if ($id->isFailure()) {
         return $id;
