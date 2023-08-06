@@ -8,6 +8,8 @@
       <sourceFolder url="file://$MODULE_DIR$/lib/oakbase/src/exceptions" isTestSource="false" packagePrefix="OakBase" />
       <sourceFolder url="file://$MODULE_DIR$/lib/oakbase/src/parameter" isTestSource="false" packagePrefix="OakBase" />
       <sourceFolder url="file://$MODULE_DIR$/lib/oakbase/src/query" isTestSource="false" packagePrefix="OakBase" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/public/js" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

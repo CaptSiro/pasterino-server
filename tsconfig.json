@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "esnext",
+    "sourceMap": true,
+    "outDir": "public/js",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "public/ts/**/*"
+  ]
+}
