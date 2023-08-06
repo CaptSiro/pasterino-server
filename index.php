@@ -4,31 +4,8 @@ require_once __DIR__ . "/lib/import.php";
 require_once __DIR__ . "/constants.php";
 
 
-const CODE_CHARS = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm0123456789-_";
-/**
- * @throws Exception
- */
-function codeGen($length = 64): string {
-    $code = "";
-    for ($i = 0; $i < $length; $i++) {
-        $code .= CODE_CHARS[random_int(0, 63)];
-    }
-    return $code;
-}
-
-function getDatabase(): stdClass {
-    return json_decode(file_get_contents(DB));
-}
-
-function saveDatabase($db) {
-    file_put_contents(DB, json_encode($db));
-}
-
-
 import("routepass");
 $router = HomeRouter::getInstance();
-
-const DB = __DIR__ . "/db.json";
 
 
 $router->setBodyParser(HomeRouter::BODY_PARSER_JSON());
