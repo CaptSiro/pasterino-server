@@ -4,7 +4,9 @@ import { production } from "./production";
 
 
 export type Env = {
-    ORIGIN: string
+    ORIGIN: string,
+    OAUTH_CLIENT_ID: string,
+    OAUTH_REDIRECT_URI: string
 }
 
 

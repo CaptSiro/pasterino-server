@@ -3,5 +3,7 @@ import { Env } from "./env";
 
 
 export const production: Env = {
-    ORIGIN: ""
+    ORIGIN: "",
+    OAUTH_CLIENT_ID: "",
+    OAUTH_REDIRECT_URI: ""
 }
