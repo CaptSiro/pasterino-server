@@ -4,7 +4,7 @@
     /**
      * @inheritDoc
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): object {
       $serialized = [];
       foreach($this as $key => $value) {
         if (isset($this->$key)) {
