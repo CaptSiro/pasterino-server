@@ -2,6 +2,7 @@ import getEnv from "./lib/env/env";
 import parseTwitchAuthResponse from "./lib/parse-twitch-auth-response";
 import getTwitchUser from "./lib/get-twitch-user";
 const env = getEnv();
+const error = document.querySelector("[data-server-error]");
 async function main() {
     const auth = parseTwitchAuthResponse();
     if (auth.type === "error") {
