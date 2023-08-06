@@ -92,6 +92,35 @@
       
       $router->setParent($this);
     }
+
+    private static function findSimilar(string $path): string {
+        if (file_exists($path) || preg_match("/\..*^/", $path)) {
+            return $path;
+        }
+
+        $files = glob("$path.*");
+
+        if (empty($files)) {
+            return $path;
+        }
+
+        $shortestLength = PHP_INT_MAX;
+        $shortest = "";
+
+        foreach ($files as $file) {
+            $len = strlen($file);
+
+            if ($len < $shortestLength) {
+                $shortest = $file;
+                $shortestLength = $len;
+            }
+        }
+
+        return $shortest === ""
+            ? $path
+            : $shortest;
+    }
+
     public function static (string $urlPattern, string $absoluteDirectoryPath, array $paramCaptureGroupMap = []) {
       $realAbsoluteDirectoryPath = realpath($absoluteDirectoryPath);
       
@@ -104,12 +133,12 @@
         $response->flush();
       }]);
       $staticRouter->get("/*", [function (Request $request, Response $response) use ($absoluteDirectoryPath, $realAbsoluteDirectoryPath) {
-        $filePath = realpath("$absoluteDirectoryPath/$request->remainingURI");
-        
-        if (strpos($filePath, $realAbsoluteDirectoryPath) === false) {
+        $filePath = realpath(self::findSimilar("$absoluteDirectoryPath/$request->remainingURI"));
+
+        if (!str_contains($filePath, $realAbsoluteDirectoryPath)) {
           $request->homeRouter->dispatchError(
             self::ERROR_REQUEST_OUT_OF_STATIC_DIRECTORY,
-            new RequestError("Request '$request->fullURI' is referencing outside of static folder: '$realAbsoluteDirectoryPath'", $request, $response)
+            new RequestError("Request '$filePath' is referencing outside of static folder: '$realAbsoluteDirectoryPath'", $request, $response)
           );
           return;
         }
